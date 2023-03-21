@@ -1,0 +1,172 @@
+*{
+    font-family: tahoma, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    direction: rtl;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* (A) siedbar itself */
+
+#pgside{
+    width: 200px;
+    transition: width 0.4s;
+    background-color: #283039;
+}
+
+/* (A1) user stuff */
+#pgside #pguser{
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+    /* background-color: red; */
+}
+
+#pgside #pguser img{
+    width: 50px;
+    height: auto;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+
+/* (A2) menu itmes */
+#pgside, #pgside a { color: #fff;}
+
+#pgside a{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    /* background-color: green; */
+    /* margin-top: 10px; */
+    align-items: center;
+}
+
+#pgside a.active { background: #7c1919; }
+#pgside a:hover { background: #9b2323; }
+
+#pgside i.ico, span, i.txt { font-style: normal; }
+
+#pgside i.ico, span{
+    font-size: 1.9em;
+    margin-left: 10px;
+}
+
+#pgside #pguser span{
+    /* background-color: black; */
+    font-size: 1em;
+}
+
+.txt{
+    color: white;
+}
+
+#pgmain{
+    background-color: blue;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+/* (A) FORM */
+
+.form {
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #eee;
+    background: #f2f2f2;
+}
+
+/* (B) FIELDS & LABELS */
+.form label,
+.form input,
+.form textarea,
+.form select,
+.form button {
+    display: block;
+    width: 100%;
+}
+
+.form label {
+    padding: 10px 0;
+}
+
+.form input,
+.form textarea,
+.form select {
+    padding: 10px;
+}
+
+/* (C) BUTTONS */
+input[type=button],
+input[type=submit],
+button {
+    font-size: 1em;
+    /* font-weight: 700; */
+    padding: 10px;
+    border: 0;
+    color: #fff;
+    background: #870000;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    margin-top: 20px;
+}
+
+/* (A) ZEBRA TABLE */
+table.zebra {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.zebra tr:nth-child(odd) {
+    background: #f2f2f2;
+}
+
+table.zebra td {
+    padding: 10px;
+}
+
+/* (B) ZEBRA LIST */
+ul.zebra,
+ol.zebra {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul.zebra li,
+ol.zebra li {
+    padding: 10px;
+}
+
+ul.zebra li:nth-child(odd),
+ol.zebra li:nth-child(odd) {
+    background: #f2f2f2;
+}
+
+@media screen and (max-width:768px) {
+    #pgside{
+        width: 70px;
+    }
+
+    #pgside #pguser span.username{
+        display: none;
+    }
+
+    #pgside i.ico, span{
+        font-size: 1.2em;
+        margin-left: 0px;
+    }
+
+    #pgside i.txt{
+        display: none;
+    }
+}
