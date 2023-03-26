@@ -1,0 +1,168 @@
+*{
+    font-family: tahoma, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    direction: rtl;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #1B1B1B; /* add background color */
+    color: #FFFFFF; /* change text color to white */
+}
+
+/* (A) sidebar itself */
+
+#pgside{
+    width: 200px;
+    transition: width 0.4s;
+    background-color: #121212; /* change sidebar background color */
+}
+
+/* (A1) user stuff */
+#pgside #pguser{
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+}
+
+#pgside #pguser img{
+    width: 50px;
+    height: auto;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+
+/* (A2) menu itmes */
+#pgside, #pgside a { color: #D8D8D8; }
+
+#pgside a{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+}
+
+#pgside a.active { background: #870000; color: #FFFFFF; } /* change active menu item background and text color */
+#pgside a:hover { background: #6B0B00; color: #FFFFFF;} /* change menu item hover background and text color */
+
+#pgside i.ico, span, i.txt { font-style: normal; }
+
+#pgside i.ico, span{
+    font-size: 1.9em;
+    margin-left: 10px;
+}
+
+#pgside #pguser span{
+    font-size: 1em;
+}
+
+.txt{
+    color: #FFFFFF;
+}
+
+#pgmain{
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #252525; /* add main content background color */
+}
+
+/* (A) FORM */
+
+.form {
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #eee;
+    background: #333333; /* change form background color */
+    color: #FFFFFF; /* change form text color */
+}
+
+/* (B) FIELDS & LABELS */
+.form label,
+.form input,
+.form textarea,
+.form select,
+.form button {
+    display: block;
+    width: 100%;
+    background-color: #555555; /* change form input background color */
+    color: #FFFFFF; /* change form input text color */
+    border: none; /* remove input border */
+    border-radius: 5px; /* add input border-radius */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form label {
+    padding: 10px 0;
+}
+
+.form textarea {
+    height: 150px; /* increase textarea height */
+}
+
+.form button {
+    margin-top: 20px;
+    background-color: #870000; /* change form button background color */
+    font-size: 1em;
+    padding: 10px;
+    border: none; /* remove button border */
+    border-radius: 5px; /* add button border-radius */
+    cursor: pointer;
+}
+
+/* (A) ZEBRA TABLE */
+table.zebra {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.zebra tr:nth-child(odd) {
+    background: #555555; /* change table row background color */
+}
+
+table.zebra td {
+    padding: 10px;
+    border: none; /* remove table cell border */
+}
+
+/* (B) ZEBRA LIST */
+ul.zebra,
+ol.zebra {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul.zebra li,
+ol.zebra li {
+    padding: 10px;
+}
+
+ul.zebra li:nth-child(odd),
+ol.zebra li:nth-child(odd) {
+    background: #555555; /* change list item background color */
+}
+
+@media screen and (max-width:768px) {
+    #pgside{
+        width: 70px;
+    }
+
+    #pgside #pguser span.username{
+        display: none;
+    }
+
+    #pgside i.ico, span{
+        font-size: 1.2em;
+        margin-left: 0px;
+    }
+
+    #pgside i.txt{
+        display: none;
+    }
+}

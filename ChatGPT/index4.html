@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <title>پنل مدیریت</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style5.css">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">پنل مدیریت</a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">&#9776;</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">پست</a></li>
+          <li><a href="#">دسته‌بندی</a></li>
+          <li><a href="#">نظرات</a></li>
+        </ul>
+      </div>
+    </nav>
+    <ul id="slide-out" class="sidenav">
+      <li><a href="#">پست</a>
+        <ul>
+          <li><a href="#">نوشتن پست</a></li>
+          <li><a href="#">ویرایش پست</a></li>
+          <li><a href="#">حذف پست</a></li>
+        </ul>
+      </li>
+      <li><a href="#">دسته‌بندی</a>
+        <ul>
+          <li><a href="#">نوشتن دسته‌بندی</a></li>
+          <li><a href="#">ویرایش دسته‌بندی</a></li>
+          <li><a href="#">حذف دسته‌بندی</a></li>
+        </ul>
+      </li>
+      <li><a href="#">نظرات</a>
+        <ul>
+          <li><a href="#">مشاهده نظرات</a></li>
+          <li><a href="#">بررسی نظرات</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="container">
+      <div class="main">
+        <h1>نوشتن پست</h1>
+        <form>
+          <label for="title">عنوان:</label>
+          <input type="text" id="title" name="title" required>
+          <label for="content">محتوا:</label>
+          <textarea id="content" name="content"></textarea>
+          <input type="submit" value="انتشار">
+        </form>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
+      });
+    </script>
+  </body>
+</html>

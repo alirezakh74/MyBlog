@@ -1,3 +1,3 @@
-<!-- (B) main --> 
-<div id="pgmain">
-</div>
+<?php
+$title = "پنل مدیریت";
+?>

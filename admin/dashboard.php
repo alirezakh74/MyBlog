@@ -1,8 +1,12 @@
-<?php 
+<?php
 require_once("include/header.php");
 require_once("include/sidebar.php");
+?>
 
+<!-- (B) main --> 
+<div id="pgmain">
 
+<?php
 /* add module and action(page) */
 if (isset($_GET['m']) and isset($_GET['p'])) {
     $m = $_GET['m'];
@@ -15,3 +19,6 @@ else {
 
 require_once("include/footer.php");
 ?>
+
+<!-- end of main -->
+</div>

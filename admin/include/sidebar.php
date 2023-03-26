@@ -7,7 +7,7 @@
             <span class="txt username">علیرضا خدابنده</span>
         </div>
         <!-- (A2) menu items -->
-        <a href="dashboard.php?m=index&p=index" class="<?php if(isset($_GET['m']) and ($_GET['m'] == 'index')) echo 'active'; ?>">
+        <a href="dashboard.php?m=index&p=index" class="<?php if((isset($_GET['m']) and ($_GET['m'] == 'index')) or (!isset($_GET['m']))) echo 'active'; ?>">
             <!-- <i class="ico">&#x2302;</i> -->
             <span class="material-symbols-outlined">home</span>
             <i class="txt">داشبورد</i>
