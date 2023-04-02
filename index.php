@@ -20,7 +20,8 @@ require_once("include/footer.php");
     <div class="wrapper">
         <nav>
             <div class="menu-icon">
-                <span class="material-symbols-outlined">menu</span>
+                <button><span class="material-symbols-outlined">menu</span></button>
+                <div class="mobile-menu"></div>
             </div>
             <div class="logo">
                 وبلاگ برنامه نویس
@@ -31,15 +32,13 @@ require_once("include/footer.php");
                 <a href="#">تماس با ما</a>
             </div>
             <div class="search-icon">
-                <span class="material-symbols-outlined">search</span>
-            </div>
-            <div class="close-icon">
-                <span class="material-symbols-outlined">close</span>
+                <button class="search-close-btn"><span class="material-symbols-outlined">search</span></button>
+                <div class="mobile-search"></div>
             </div>
             <div class="search-container">
-                <form action="search.php">
+                <form action="search.php" class="search-form">
                     <input type="search" name="search" id="search" placeholder="جستجو ..." required>
-                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                    <button type="search"><span class="material-symbols-outlined">search</span></button>
                 </form>
             </div>
         </nav>
@@ -52,6 +51,7 @@ require_once("include/footer.php");
             <p>&nbsp;تمام حقوق محفوظ است &copy; 1402</p>
         </footer>
     </div>
+    <script src="js/functions.js"></script>
 </body>
 
 </html>
