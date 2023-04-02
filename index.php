@@ -51,7 +51,7 @@ require_once("include/footer.php");
             <p>&nbsp;تمام حقوق محفوظ است &copy; 1402</p>
         </footer>
     </div>
-    <script src="js/functions.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
