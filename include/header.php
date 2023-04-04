@@ -14,9 +14,9 @@
     <div class="wrapper">
         <nav>
             <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
             </div>
             <div class="logo">
                 Join Web
@@ -25,11 +25,25 @@
                 <a href="#">صفحه اصلی</a>
                 <a href="#">درباره ما</a>
                 <a href="#">تماس با ما</a>
+                <a href="#">صفحه اصلی</a>
+                <a href="#">درباره ما</a>
+                <a href="#">تماس با ما</a>
+                <a href="#">صفحه اصلی</a>
+                <a href="#">درباره ما</a>
+                <a href="#">تماس با ما</a>
+                <a href="#">صفحه اصلی</a>
+                <a href="#">درباره ما</a>
+                <a href="#">تماس با ما</a>
+                <a href="#">صفحه اصلی</a>
+                <a href="#">درباره ما</a>
+                <a href="#">تماس با ما</a>
+                <a href="#">صفحه اصلی</a>
+                <a href="#">درباره ما</a>
+                <a href="#">تماس با ما</a>
             </div>
             <div class="search-icon">
                 <button class="search-close-btn"><span class="material-symbols-outlined">search</span></button>
             </div>
-            <!-- <div class="mobile-search"></div> -->
             <div class="search-container">
                 <form action="search.php" class="search-form">
                 <button type="search"><span class="material-symbols-outlined">search</span></button>
