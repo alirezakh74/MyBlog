@@ -25,7 +25,7 @@ body{
 div.wrapper{
     display: flex;
     flex-direction: column;
-    flex-basis: 85%;
+    flex-basis: 100%;
 }
 
 /* start of nav part */
@@ -36,11 +36,13 @@ nav{
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    height: 50px;
+    height: 90px;
     position: sticky;
     top: 0;
-    background-color: rgba(255,255,255,0.8);
-    border-bottom: 1px solid black;
+    background-color: white;
+    /* border-bottom: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding: 1% 5%;
 }
 
 div.hamburger{
@@ -110,18 +112,49 @@ main{
     align-items: center;
     min-height: 80vh;
     gap: 4vh;
+    width: 85%;
+    margin: 0 auto;
     margin-top: 30px;
 }
 
 main article{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 30px;
+    align-items: right;
     flex: 1;
     flex-basis: 100%;
     width: 100%;
-    border: 1px solid;
-    min-height: 30vh;
+    /* border: 1px solid; */
+    /* min-height: 50vh; */
+    /* max-height: auto; */
+    padding: 1% 2%;
+    border-radius: 10px;
+    /* height: auto; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+main article img{
+    width: 100%;
+}
+
+main article p, main article h2{
+    text-align: justify;
+}
+
+main article a{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(133, 154, 168);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    padding: 1%;
+    border-radius: 25px;
+    text-align: center;
 }
 
 footer{
@@ -129,7 +162,11 @@ footer{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 2vh;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    padding: 3%;
+    /* background-color: rgb(87, 83, 83); */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .remove-scrollable{
@@ -140,6 +177,13 @@ footer{
 @media screen and (max-width:768px) {
     div.wrapper{
         flex-basis: 100%;
+    }
+
+    nav{
+        /* border-bottom: 1px solid black; */
+        /* border-radius: 0; */
+        padding: 0;
+        height: 50px;
     }
 
     nav div.search-icon, nav div.hamburger{
@@ -155,13 +199,13 @@ footer{
     }
 
     div.line1.active{
-        transform: translate(0%, 330%) rotate(-45deg);
+        transform: translate(0, 6px) rotate(-45deg);
     }
     div.line2.active{
         width: 0px !important;
     }
     div.line3.active{
-        transform: translate(0%, -330%) rotate(45deg);
+        transform: translate(0, -7px) rotate(45deg);
     }
 
     nav div.nav-items{
@@ -210,5 +254,19 @@ footer{
     div.search-container form.search-form{
         position: absolute;
         top: 10%;
+    }
+
+    main{
+        width: 90%;
+        gap: 2vh;
+    }
+
+    main article{
+        padding: 1% 5%;
+    }
+
+    main article a{
+        width: 30%;
+        padding: 2%;
     }
 }
