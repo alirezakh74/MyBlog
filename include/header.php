@@ -19,24 +19,9 @@
                 <div class="line line3"></div>
             </div>
             <div class="logo">
-                Join Web
+                بلاگ من
             </div>
             <div class="nav-items">
-                <a href="#">صفحه اصلی</a>
-                <a href="#">درباره ما</a>
-                <a href="#">تماس با ما</a>
-                <a href="#">صفحه اصلی</a>
-                <a href="#">درباره ما</a>
-                <a href="#">تماس با ما</a>
-                <a href="#">صفحه اصلی</a>
-                <a href="#">درباره ما</a>
-                <a href="#">تماس با ما</a>
-                <a href="#">صفحه اصلی</a>
-                <a href="#">درباره ما</a>
-                <a href="#">تماس با ما</a>
-                <a href="#">صفحه اصلی</a>
-                <a href="#">درباره ما</a>
-                <a href="#">تماس با ما</a>
                 <a href="#">صفحه اصلی</a>
                 <a href="#">درباره ما</a>
                 <a href="#">تماس با ما</a>
