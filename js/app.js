@@ -48,6 +48,8 @@ menu_btn.addEventListener("click", (e) => {
         });
 
         document.body.classList.remove("remove-scrollable");
+        // scroll items to top after close
+        menu_items.scrollTo(0, 0);
     }
     else
     {
