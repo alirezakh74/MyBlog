@@ -120,6 +120,10 @@ input[type=submit] {
     margin-top: 20px;
 }
 
+input[type=submit]:hover{
+    background-color:hwb(0 0% 27%);
+}
+
 /* (A) ZEBRA TABLE */
 table.zebra {
     width: 100%;
@@ -169,4 +173,55 @@ ol.zebra li:nth-child(odd) {
     #pgside i.txt{
         display: none;
     }
+}
+
+body.form-body{
+    background-color: gray;
+}
+
+div.login_register_wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-basis: 100vw;
+    width: 100vw;
+    margin-top: 15vh;
+}
+
+div.sign_in{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+div.sign_in form{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+div.sign_up{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+div.sign_up form{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+div.sign_in form input:not([type=submit]),
+div.sign_up form input:not([type=submit]){
+    font-size: 1.4em;
+}
+
+.ltr{
+    direction: ltr;
+}
+
+.rtl{
+    display: rtl;
 }
