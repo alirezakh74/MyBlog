@@ -143,6 +143,10 @@ main article p, main article h2{
     text-align: justify;
 }
 
+main article p.author{
+    font-size: 0.7em;
+}
+
 main article a{
     cursor: pointer;
     color: white;
