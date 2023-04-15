@@ -139,8 +139,12 @@ main article img{
     width: 100%;
 }
 
-main article p, main article h2{
+main article p, main article h1{
     text-align: justify;
+}
+
+main article h1{
+    font-size: 0.8em;
 }
 
 main article p.author{
