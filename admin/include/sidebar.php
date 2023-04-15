@@ -4,7 +4,7 @@
         <!-- link to dashboard or logout -->
         <div id="pguser">
             <img src="images/Alireza.jpg" alt="تصویر ادمین" title="تصویر مدیر">
-            <span class="txt username">علیرضا خدابنده</span>
+            <span class="txt username"><?php echo($_SESSION['user_first_name'] . ' ' . $_SESSION['user_last_name']) ?></span>
         </div>
         <!-- (A2) menu items -->
         <a href="dashboard.php?m=index&p=index" class="<?php if((isset($_GET['m']) and ($_GET['m'] == 'index')) or (!isset($_GET['m']))) echo 'active'; ?>">
@@ -27,5 +27,11 @@
             <!-- <span class="material-symbols-outlined">folder_managed</span> -->
             <span class="material-symbols-outlined">auto_awesome_motion</span>
             <i class="txt">کامنت ها</i>
+        </a>
+        <a href="logout.php" class="">
+            <!-- <i class="ico">&#x2630;</i> -->
+            <!-- <span class="material-symbols-outlined">folder_managed</span> -->
+            <span class="material-symbols-outlined">logout</span>
+            <i class="txt">خروج</i>
         </a>
     </div>
