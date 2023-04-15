@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['user_email']))
+{
+    header("Location:index.php");
+    exit;
+}
+
+require_once("include/functions.php");
 require_once("include/header.php");
 require_once("include/sidebar.php");
 ?>
