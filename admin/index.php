@@ -10,14 +10,15 @@ if(isset($_POST['login_submit']) and isset($_POST['login_email']) and isset($_PO
 
 if (isset($_SESSION["user_email"]))
 {
-    header("Location:dashboard.php");
+    header("Location:dashboard.php?m=index&p=index");
+    exit;
 }
 
 if(isset($_POST['register_submit']) and isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['email']) and isset($_POST['password']) and isset($_POST['r_password']) )
 {
     if($_POST['password'] == $_POST['r_password'])
     {
-        addAdminUser($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['pass']);
+        addAdminUser($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['password']);
     }
     else
     {
