@@ -92,4 +92,37 @@ function makeDatabase()
     }
 }
 
+function getPosts($current_start_num, $limit_post_num)
+{
+    try
+    {
+        $db = new PDO(DSN, DB_USER_NAME, DB_PASS);
+        // set the PDO error mode to exception
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db->query("use " . DATABASE_NAME);
+
+        $query = "SELECT * FROM posts ORDER BY id DESC LIMIT :count_num OFFSET :start_num";
+
+        $data = array(
+            ":start_num" => $current_start_num,
+            ":count_num" => $limit_post_num
+        );
+
+        $prepared = $db->prepare($query);
+        $prepared->bindValue(":start_num", $current_start_num, PDO::PARAM_INT);
+        $prepared->bindValue(":count_num", $limit_post_num, PDO::PARAM_INT);
+        if($prepared->execute())
+        {
+            $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+        return NULL;
+
+    }
+    catch (PDOException $e) {
+        die("DB ERROR: " . $query . "<br>" . $e->getMessage());
+    }
+}
+
 ?>
