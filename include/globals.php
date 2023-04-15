@@ -6,4 +6,6 @@ define("DATABASE_NAME", "myblog");
 define("DB_USER_NAME", "root");
 define("DB_PASS", "");
 
+define("PER_PAGE_LIMIT", 10);
+
 ?>
