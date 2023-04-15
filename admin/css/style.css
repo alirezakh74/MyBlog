@@ -156,6 +156,25 @@ ol.zebra li:nth-child(odd) {
     background: #f2f2f2;
 }
 
+.post-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form.post-form input, form.post-form textarea{
+    margin-top: 5%;
+    width: 90%;
+    font-size: 1.2em;
+}
+
+form.post-form input[type=submit]{
+    width: 20%;
+    font-size: 1.1em;
+}
+
 @media screen and (max-width:768px) {
     #pgside{
         width: 70px;
@@ -174,6 +193,8 @@ ol.zebra li:nth-child(odd) {
         display: none;
     }
 }
+
+/* style for login/register index page */
 
 body.form-body{
     background-color: gray;
@@ -217,6 +238,27 @@ div.sign_in form input:not([type=submit]),
 div.sign_up form input:not([type=submit]){
     font-size: 1.4em;
 }
+
+@media screen and (max-width:768px) {
+    div.login_register_wrapper{
+        flex-direction: column;
+        flex-basis: 90%;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.sign_in{
+        width: 100%;
+    }
+
+    div.sign_up{
+        width: 100%;
+        margin-top: 12%;
+    }
+}
+
+/* commont styles */
 
 .ltr{
     direction: ltr;
