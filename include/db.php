@@ -41,6 +41,7 @@ function makeDatabase()
             title VARCHAR(300) NOT NULL,
             body TEXT NOT NULL,
             photo VARCHAR(100),
+            active TINYINT(1) DEFAULT 0,
             post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             last_edit_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             user_id INT(11) UNSIGNED NOT NULL,
@@ -101,7 +102,7 @@ function getPosts($current_start_num, $limit_post_num)
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->query("use " . DATABASE_NAME);
 
-        $query = "SELECT * FROM posts ORDER BY id DESC LIMIT :count_num OFFSET :start_num";
+        $query = "SELECT * FROM posts WHERE active = 1 ORDER BY id DESC LIMIT :count_num OFFSET :start_num";
 
         $data = array(
             ":start_num" => $current_start_num,
@@ -125,4 +126,22 @@ function getPosts($current_start_num, $limit_post_num)
     }
 }
 
+function getAuthorName($id)
+{
+    try {
+        $db = new PDO(DSN, DB_USER_NAME, DB_PASS);
+        // set the PDO error mode to exception
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db->query("use " . DATABASE_NAME);
+
+        $query = "SELECT first_name,last_name FROM users WHERE id = :userId";
+        $prepared = $db->prepare($query);
+        $prepared->execute(["userId" => $id]);
+        $result = $prepared->fetch(PDO::FETCH_ASSOC);
+        return $result;
+        
+    } catch (PDOException $e) {
+        die("DB ERROR: " . $query . "<br>" . $e->getMessage());
+    }
+}
 ?>

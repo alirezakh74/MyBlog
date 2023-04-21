@@ -22,7 +22,7 @@
                 بلاگ من
             </div>
             <div class="nav-items">
-                <a href="#">صفحه اصلی</a>
+                <a href="index.php">صفحه اصلی</a>
                 <a href="#">درباره ما</a>
                 <a href="#">تماس با ما</a>
             </div>

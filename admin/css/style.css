@@ -156,6 +156,8 @@ ol.zebra li:nth-child(odd) {
     background: #f2f2f2;
 }
 
+/* styles for form of dashboard */
+
 .post-form{
     display: flex;
     flex-direction: column;
@@ -173,6 +175,64 @@ form.post-form input, form.post-form textarea{
 form.post-form input[type=submit]{
     width: 20%;
     font-size: 1.1em;
+}
+
+div.btn{
+    display: inline-block;
+    font-size: 1em;
+    /* font-weight: 700; */
+    padding: 10px;
+    border: 0;
+    color: #fff;
+    background: #870000;
+    cursor: pointer;
+    margin-bottom: 3%;
+}
+div.btn a{
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+table.dashboard_table{
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    color: white;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+table.dashboard_table thead{
+    background-color: #354250;
+}
+table.dashboard_table thead,
+table.dashboard_table tbody,
+table.dashboard_table tfoot,
+table.dashboard_table th,
+table.dashboard_table td,
+table.dashboard_table tr{
+    margin: 0.5em;
+    padding: 0.7em;
+    /* border: 3px solid red; */
+}
+table.dashboard_table tr:not(thead tr){
+    background-color: #6c88ad;
+}
+table.dashboard_table tr:nth-child(odd):not(thead tr){
+    background-color: #69798d;
+}
+table.dashboard_table td{
+    text-align: center;
+    margin: 0 auto;
+}
+/* table.dashboard_table td:not(td:first-child){
+    text-align: justify;
+} */
+table.dashboard_table tr td a img{
+    width: 80%;
+    height: 80%;
 }
 
 @media screen and (max-width:768px) {
@@ -198,6 +258,7 @@ form.post-form input[type=submit]{
 
 body.form-body{
     background-color: gray;
+    justify-content: center;
 }
 
 div.login_register_wrapper{
@@ -258,7 +319,7 @@ div.sign_up form input:not([type=submit]){
     }
 }
 
-/* commont styles */
+/* common styles */
 
 .ltr{
     direction: ltr;

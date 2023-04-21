@@ -1,7 +1,8 @@
 <?php
-if(isset($_POST['submit']) and isset($_POST['post_title']) and isset($_POST['post_body']))
-{
-addPost($_POST['post_title'], $_POST['post_body']/*, $_FILES['post_image']*/);
+if (isset($_POST['submit']) and isset($_POST['post_title']) and isset($_POST['post_body'])) {
+    addPost($_POST['post_title'], $_POST['post_body']/*, $_FILES['post_image']*/);
+    header("Location:dashboard.php?m=post&p=index");
+    exit;
 }
 ?>
 <form action="dashboard.php?m=post&p=add" method="post" enctype="multipart/form-data" class="post-form">

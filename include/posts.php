@@ -23,10 +23,12 @@
                 echo "</h1>";
 
                 echo "<p>";
-                echo $post['body'];
+                echo substr($post['body'], 0, GET_STRING_POST) . "...";
                 echo "</p>";
 
-                echo "<p>";
+                echo "<p class='author'>";
+                $author = getAuthorName($post['user_id']);
+                echo "نویسنده: " . $author['first_name'] . " " . $author['last_name'];
                 echo "</p>";
 
                 echo "<a href='single.php?post_id=" . $post['id'] . "'>";

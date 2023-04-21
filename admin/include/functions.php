@@ -2,6 +2,39 @@
 
 require_once("consts.php");
 
+function query_databse($query, $bind_array)
+{
+    try
+    {
+        $db = new PDO(DSN, DB_USER_NAME, DB_PASS);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db->query("use ".DATABASE_NAME);
+
+        $prepared = $db->prepare($query);
+        $result = $prepared->execute($bind_array);
+        if($rows = $prepared->fetchAll(PDO::FETCH_ASSOC))
+        {
+            return $rows;
+        }
+        else
+        {
+            return $result;
+        }
+        // if($rows = $prepared->fetchAll(PDO::FETCH_ASSOC))
+        // {
+        //     return $rows;
+        // }
+        // else
+        // {
+        //     return false;
+        // }
+    }
+    catch(PDOException $e) 
+    {
+        die("DB ERROR: " . $query . "<br>" . $e->getMessage());
+    }
+}
+
 function checkAdminUser($email, $pass)
 {
     try
@@ -135,7 +168,7 @@ function addPost($post_title, $post_body/*, $post_image*/)
             ]);
             if($result and ($row = $prepared->fetch(PDO::FETCH_ASSOC)) and (isset($_FILES['post_image'])))
             {
-                uploadPostImage($row['id']/*, $post_image*/);
+                uploadPostPhoto($row['id']/*, $post_image*/);
             }
         }
     }
@@ -145,7 +178,7 @@ function addPost($post_title, $post_body/*, $post_image*/)
     }
 }
 
-function uploadPostImage($id/*, $post_image*/)
+function uploadPostPhoto($id/*, $post_image*/)
 {
     $array = explode(".", $_FILES['post_image']['name']);
     $extension = end($array);
@@ -159,13 +192,112 @@ function uploadPostImage($id/*, $post_image*/)
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $db->query("use " . DATABASE_NAME);
 
-            $query = "UPDATE posts SET photo = :photo_name  WHERE id = :id";
+            $query = "UPDATE posts SET photo = :photo_name  WHERE id = :post_id";
             $prepared = $db->prepare($query);
             $photoName = $id . "." . $extension;
-            $prepared->execute([":photo_name" => $photoName ,":id" => $id]);
+            $prepared->execute([":photo_name" => $photoName, ":post_id" => $id]);
         } catch (PDOException $e) {
             die("DB ERROR: " . $query . "<br>" . $e->getMessage());
         }
     }
+}
+
+function getPostInfo()
+{
+    try {
+        $db = new PDO(DSN, DB_USER_NAME, DB_PASS);
+        // set the PDO error mode to exception
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db->query("use " . DATABASE_NAME);
+
+        $query = "SELECT * FROM posts ORDER BY id DESC";
+        $result = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+
+    } catch (PDOException $e) {
+        die("DB ERROR: " . $query . "<br>" . $e->getMessage());
+    }
+}
+
+function editPost($id)
+{
+    $query = "UPDATE posts SET title = :post_title, body = :post_body WHERE id = :post_id";
+    $bind_array = [
+        ":post_title" => $_POST['post_title'],
+        ":post_body" => $_POST['post_body'],
+        ":post_id" => $id
+    ];
+
+    $result = query_databse($query, $bind_array);
+    return $result;
+}
+
+function uploadNewPostPhoto($id)
+{
+    $array = explode(".", $_FILES['post_image']['name']);
+    $extension = end($array);
+    $file_path = "upload/photos/posts/" . $id . "." . $extension;
+    if (file_exists($file_path)) {
+        unlink($file_path);
+    }
+
+    if (!move_uploaded_file($_FILES['post_image']['tmp_name'], "upload/photos/posts/" . $id . "." . $extension)) {
+        // move photo have a problem
+    } else {
+        $query = "UPDATE posts SET photo = :post_photo WHERE id = :post_id";
+        $bind_array = [
+            ":post_photo" => $_POST['post_image'],
+            ":post_id" => $id
+        ];
+        query_databse($query, $bind_array);
+    }
+}
+
+function deletePost($id)
+{
+    $bind_array = [":post_id" => $id];
+
+    //get photo name
+    $query = "SELECT photo FROM posts WHERE id = :post_id";
+    $fileName = query_databse($query, $bind_array);
+    // delete post
+    $query = "DELETE FROM posts WHERE id = :post_id";
+    if(query_databse($query, $bind_array))
+    {
+        deletePostPhoto($id, $fileName[0]['photo']);
+        return true;
+    }
+
+    return false;
+}
+
+function deletePostPhoto($id, $fileName)
+{
+    $file_path = "upload/photos/posts/" . $fileName;
+    if (file_exists($file_path)) {
+        @unlink($file_path);
+    }
+}
+
+function getPostInfoById($id)
+{
+    $query = "SELECT * FROM posts WHERE id = :id";
+    $array = [":id" => $id];
+    if($rows = query_databse($query, $array))
+    {
+        if(is_array($rows))
+        {
+            // [0] make return only columns posts
+            return $rows[0];
+        }
+    }
+
+    return false;
+}
+
+function activePost($bool_active)
+{
+
 }
 ?>

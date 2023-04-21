@@ -8,4 +8,6 @@ define("DB_PASS", "");
 
 define("PER_PAGE_LIMIT", 10);
 
+define("GET_STRING_POST", 500);
+
 ?>
