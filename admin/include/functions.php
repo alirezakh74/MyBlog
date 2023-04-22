@@ -247,7 +247,7 @@ function uploadNewPostPhoto($id)
     } else {
         $query = "UPDATE posts SET photo = :post_photo WHERE id = :post_id";
         $bind_array = [
-            ":post_photo" => $_POST['post_image'],
+            ":post_photo" => $id . "." . $extension,
             ":post_id" => $id
         ];
         query_databse($query, $bind_array);
