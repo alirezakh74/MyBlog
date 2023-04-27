@@ -69,6 +69,7 @@ function checkAdminUser($email, $pass)
                 $_SESSION['user_email'] = $row['email'];
                 $_SESSION['user_first_name'] = $row['first_name'];
                 $_SESSION['user_last_name'] = $row['last_name'];
+                $_SESSION['user_photo'] = $row['photo'];
                 header("Location:dashboard.php");
                 exit;
             }
@@ -121,8 +122,6 @@ function addAdminUser($fname, $lname, $email, $pass)
                 $_SESSION['user_first_name'] = $fname;
                 $_SESSION['user_last_name'] = $lname;
                 //echo("ثبت نام شدید");
-                header("Location:dashboard.php");
-                exit;
             }
         }
         else
@@ -133,6 +132,38 @@ function addAdminUser($fname, $lname, $email, $pass)
     catch(PDOException $e) 
     {
         die("DB ERROR: " . $query . "<br>" . $e->getMessage());
+    }
+}
+
+function addAdminPhoto()
+{
+    $array = explode(".", $_FILES['admin_photo']['name']);
+    $extension = end($array);
+
+    //get id of current registred admin
+    $query = "SELECT id FROM users WHERE email = :admin_user_email";
+    $bind_array = [":admin_user_email" => $_SESSION['user_email']];
+    $result = query_databse($query, $bind_array);
+    $id = $result[0]['id'];
+
+    if (!move_uploaded_file($_FILES['admin_photo']['tmp_name'], "upload/photos/users/" . $id . "." . $extension)) {
+        // move photo have a problem
+        //echo "آپلود فایل ناموفق بود";
+        //exit;
+    } else {
+        $query = "UPDATE users SET photo = :photo_name WHERE id = :user_id";
+        $photoName = $id . "." . $extension;
+        $bind_array = [":photo_name" => $photoName, ":user_id" => $id];
+        $result = query_databse($query, $bind_array);
+        if($result)
+        {
+            $_SESSION['user_photo'] = $photoName;
+        }
+        else
+        {
+            echo "ویرایش نام تصویر پروفایل کاربر در پایگاه داده ناموفق بود";
+            exit;
+        }
     }
 }
 

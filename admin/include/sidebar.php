@@ -3,7 +3,7 @@
         <!-- (A1) Branding or User -->
         <!-- link to dashboard or logout -->
         <div id="pguser">
-            <img src="images/Alireza.jpg" alt="تصویر ادمین" title="تصویر مدیر">
+            <img src="<?php if(isset($_SESSION['user_photo'])) { echo "upload/photos/users/" . $_SESSION['user_photo']; } else { echo "images/admin.jpg"; } ?>" alt="تصویر ادمین" title="تصویر مدیر">
             <span class="txt username"><?php echo($_SESSION['user_first_name'] . ' ' . $_SESSION['user_last_name']) ?></span>
         </div>
         <!-- (A2) menu items -->

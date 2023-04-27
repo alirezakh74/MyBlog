@@ -19,6 +19,9 @@ if(isset($_POST['register_submit']) and isset($_POST['fname']) and isset($_POST[
     if($_POST['password'] == $_POST['r_password'])
     {
         addAdminUser($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['password']);
+        addAdminPhoto();
+        header("Location:dashboard.php");
+        exit;
     }
     else
     {
@@ -55,7 +58,7 @@ if(isset($_POST['register_submit']) and isset($_POST['fname']) and isset($_POST[
                 <input type="text" name="email" id="email" placeholder="ایمیل" required>
                 <input type="password" name="password" id="password" placeholder="رمز عبور" required>
                 <input type="password" name="r_password" id="r_password" placeholder="تکرار رمز عبور" required>
-                <input type="file" name="photo" id="photo">
+                <input type="file" name="admin_photo" id="photo">
                 <input type="submit" name="register_submit" value="ثبت نام">
             </form>
         </div>
