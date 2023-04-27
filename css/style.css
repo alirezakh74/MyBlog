@@ -171,6 +171,19 @@ main article a{
     align-self: center;
 }
 
+main.single_post{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+main.single_post h1,
+main.single_post p{
+    text-align: justify;
+}
+
 footer{
     display: flex;
     flex-direction: column;
