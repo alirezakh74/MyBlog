@@ -18,8 +18,11 @@
                 <div class="line line2"></div>
                 <div class="line line3"></div>
             </div>
-            <div class="logo">
-                بلاگ من
+            <div class="search-container">
+                <form action="search.php" class="search-form">
+                    <input type="search" name="search" id="search" placeholder="جستجو ..." required>
+                    <button type="search"><span class="material-symbols-outlined">search</span></button>
+                </form>
             </div>
             <div class="nav-items">
                 <a href="index.php">صفحه اصلی</a>
@@ -29,10 +32,7 @@
             <div class="search-icon">
                 <button class="search-close-btn"><span class="material-symbols-outlined">search</span></button>
             </div>
-            <div class="search-container">
-                <form action="search.php" class="search-form">
-                <button type="search"><span class="material-symbols-outlined">search</span></button>
-                    <input type="search" name="search" id="search" placeholder="جستجو ..." required>
-                </form>
+            <div class="logo">
+                <a href="index.php"><img src="images/final_logo.png" alt="logo"></a>
             </div>
         </nav>
